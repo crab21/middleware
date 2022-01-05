@@ -12,7 +12,7 @@ import (
 
 func InitClients() error {
 	info := &JaegerInfo{
-		JAEGER_AGENT_PORT:   "6831",
+		JAEGER_AGENT_PORT:   "16831",
 		JAEGER_AGENT_HOST:   "9.135.225.72",
 		JAEGER_SERVICE_NAME: "gogo-wang-test-service",
 		// JAEGER_ENDPOINT:     "http://9.135.225.72:6831/api/traces",
@@ -33,7 +33,7 @@ func InitClients() error {
 
 func Recursion(ctxparam context.Context, span opentracing.Span, flag int) {
 
-	if flag > 1<<4 {
+	if flag > 1<<3 {
 		return
 	}
 	ctx := opentracing.ContextWithSpan(ctxparam, span)
